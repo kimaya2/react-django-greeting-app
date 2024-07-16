@@ -9,7 +9,7 @@ function GreetingForm() {
 
     const fetchNames = async () => {
         try {
-            const namesResponse = await axios.get('http://3.15.26.36:8000/api/names/');
+            const namesResponse = await axios.get('http://127.0.0.1:8000/api/names/');
             setNames(namesResponse.data.names);
         } catch (error) {
             console.error('There was an error fetching the names!', error);
@@ -23,7 +23,7 @@ function GreetingForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://3.15.26.36:8000/api/greet/', { name });
+            const response = await axios.post('http://127.0.0.1:8000/api/greet/', { name });
             setGreeting(response.data.greeting);
             await fetchNames(); // Fetch names again after adding a new name
         } catch (error) {
